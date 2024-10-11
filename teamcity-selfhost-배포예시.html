@@ -1,0 +1,81 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2024-10-11T18:10:58.1590184"><title>TeamCity_SelfHost_GitPage_배포예시 | Bigcat GoodDay</title><script type="application/json" id="virtual-toc-data">[]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b419/app.css" rel="stylesheet"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="TeamCity_SelfHost_GitPage_배포예시 | Bigcat GoodDay"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="Bigcat GoodDay Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/teamcity-selfhost-배포예시.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="TeamCity_SelfHost_GitPage_배포예시 | Bigcat GoodDay"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "writerside-documentation/teamcity-selfhost-배포예시.html#webpage",
+    "url": "writerside-documentation/teamcity-selfhost-배포예시.html",
+    "name": "TeamCity_SelfHost_GitPage_배포예시 | Bigcat GoodDay",
+    "description": "",
+    "image": "",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "writerside-documentation/#website",
+    "url": "writerside-documentation/",
+    "name": "Bigcat GoodDay Help"
+}</script><!-- End Schema.org --></head><body data-id="TeamCity-SelfHost-배포예시" data-main-title="TeamCity_SelfHost_GitPage_배포예시" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="starter.md|Starter///TeamCity.md|TeamCity///TeamCity-활용.md|TeamCity 활용"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Bigcat GoodDay  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="TeamCity-SelfHost-배포예시" data-label-id="teamcity" data-annotation-ids="tips,advance" id="TeamCity-SelfHost-배포예시.md">TeamCity_SelfHost_GitPage_배포예시</h1><section class="procedure-steps"><h3 id="teamcitycreate-to-a-procedure" data-toc="teamcitycreate-to-a-procedure">1. TeamCity 프로젝트 생성</h3><ol class="list _decimal"><li class="list__item" id="-hhp4qq_12"><p>수동으로 생성하여 이름만 기재하자</p></li><li class="list__item" id="-hhp4qq_13"><p id="-hhp4qq_16">Build Configurations 생성하면 사실상 subproject 개념으로 메뉴가 생긴다.</p></li><style>.theme-dark .plantuml > svg {filter: hue-rotate(180deg) invert(0.9);}div.plantuml {overflow-x: auto;}</style><div class="plantuml"><?xml version="1.0" encoding="us-ascii" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="67px" preserveAspectRatio="none" style="width:350px;height:67px;background:#FFFFFF;" version="1.1" viewBox="0 0 350 67" width="350px" zoomAndPan="magnify"><defs/><g><rect fill="#F1F1F1" height="22.6211" rx="5" ry="5" style="stroke:#F1F1F1;stroke-width:1.5;" width="153" x="10" y="21.1211"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="121" x="15" y="38.2285">writerableProject</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="12" x="146" y="38.2285">&#160;&#160;&#160;</text><line style="stroke:#000000;stroke-width:1.0;" x1="141" x2="141" y1="21.1211" y2="43.7422"/><rect fill="none" height="22.6211" rx="5" ry="5" style="stroke:#000000;stroke-width:1.5;" width="153" x="10" y="21.1211"/><rect fill="#F1F1F1" height="45.2422" rx="5" ry="5" style="stroke:#F1F1F1;stroke-width:1.5;" width="138" x="200" y="10"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="128" x="205" y="27.1074">bigcat0815.github.io</text><line style="stroke:#000000;stroke-width:1.0;" x1="200" x2="338" y1="32.6211" y2="32.6211"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="118" x="205" y="49.7285">yesbigcat.github.io</text><rect fill="none" height="45.2422" rx="5" ry="5" style="stroke:#000000;stroke-width:1.5;" width="138" x="200" y="10"/><path d="M151,32.6211 L164,32.6211 C173.305,32.6211 183.0762,32.6211 192.7531,32.6211 " fill="none" style="stroke:#000000;stroke-width:1.0;stroke-dasharray:3.0,3.0;"/><path d="M192.7531,35.713 L195.072,32.6211 L192.7531,29.5292 L200.4829,32.6211 L192.7531,35.713 " fill="#000000" style="stroke:#000000;stroke-width:1.0;"/><ellipse cx="151" cy="32.6211" fill="#000000" rx="3" ry="3" style="stroke:#000000;stroke-width:1.0;"/><!--SRC=[JOx1IiD054NtynMFh5gm8HbJgLaLhGNJXXRJTYCk9iaplfBEoCoRI17_tL4HtTvpx-7E7IlBHsUqU1VHcoL6g-eUjzOSiU4eVungwXh5oIoTnXtnYwzZCj55T4RtG_wbJ-93p56ttpwnxPNcVRc60QqZeo6DPI8lurIEbfPWqp381AJCi-jyci6gsi4N7ujHURy3Pxnj45foRAds70HZKQX1mOFNJ2VCOVEAkbYiVWEuqmDPeq-eMHI7ygzmbKrkYA526wx0eHGBV5Q-vx1eJ4kwos6_MqvcOgrqvrKNtAZ5hGbUUmwi-WG0]--></g></svg></div><li class="list__item" id="-hhp4qq_15"><p>Artifact paths: 결과물을 지정하는 경로인데 많이 헷갈리므로 건들지 말자</p></li></ol></section><section class="procedure-steps"><h3 id="teamcityvcs-to-a-procedure" data-toc="teamcityvcs-to-a-procedure">2. VCS 설정</h3><div class="table-wrapper"><table class="wide" id="-hhp4qq_17"><thead><tr class="ijRowHead" id="-hhp4qq_18"><th id="-hhp4qq_27"><p>메뉴</p></th><th id="-hhp4qq_28"><p>내용</p></th></tr></thead><tbody><tr id="-hhp4qq_19"><td id="-hhp4qq_29"><p>Type of VCS</p></td><td id="-hhp4qq_30"><p>Git</p></td></tr><tr id="-hhp4qq_20"><td id="-hhp4qq_31"><p>VCS root name</p></td><td id="-hhp4qq_32"><p>writerside git (임의지정)</p></td></tr><tr id="-hhp4qq_21"><td id="-hhp4qq_33"><p>VCS root ID</p></td><td id="-hhp4qq_34"><p>WriterSideDocument_WritersideGit(자동)</p></td></tr><tr id="-hhp4qq_22"><td id="-hhp4qq_35"><p>Fetch URL</p></td><td id="-hhp4qq_36"><p>감지 하고 싶은 git 주소</p></td></tr><tr id="-hhp4qq_23"><td id="-hhp4qq_37"><p>Default branch</p></td><td id="-hhp4qq_38"><p>main</p></td></tr><tr id="-hhp4qq_24"><td id="-hhp4qq_39"><p>Authentication method</p></td><td id="-hhp4qq_40"><p>토큰</p></td></tr><tr id="-hhp4qq_25"><td id="-hhp4qq_41"><p>username</p></td><td id="-hhp4qq_42"><p>git 계정이름 (bigcat)</p></td></tr><tr id="-hhp4qq_26"><td id="-hhp4qq_43"><p>토큰</p></td><td id="-hhp4qq_44"><p>토큰</p></td></tr></tbody></table></div><ol class="list _decimal"></ol></section><section class="procedure-steps"><h3 id="teamcitystep-to-a-procedure" data-toc="teamcitystep-to-a-procedure">3.bulid step</h3><aside class="prompt" data-type="note" data-title="" id="-hhp4qq_45"><p>Advanced options 선택하면 작업 폴더 설정은 기준경로가 된다.(bin)</p></aside><ol class="list _decimal"><li class="list__item" id="-hhp4qq_46"><p>Command line을 선택한다.</p></li><li class="list__item" id="-hhp4qq_47"><p id="-hhp4qq_48">결과물은 기본폴더에 있지만 효율적인 작업을 위해 다른 폴더에 결과물을 만든다.</p><div class="code-block" data-lang="none">
+#!/bin/bash
+set -e
+DEST_DIR=&quot;result&quot;
+ZIP_PATTERN=&quot;*.zip&quot;
+if [ -d &quot;$DEST_DIR&quot; ]; then
+  echo &quot;디렉토리 '$DEST_DIR'가 존재합니다. 기존 파일을 삭제합니다.&quot;
+  rm -rf &quot;${DEST_DIR:?}/&quot;*
+else
+  echo &quot;디렉토리 '$DEST_DIR'가 존재하지 않습니다. 생성합니다.&quot;
+  mkdir &quot;$DEST_DIR&quot;
+fi
+echo &quot;압축을 해제합니다: $ZIP_PATTERN -&gt; $DEST_DIR&quot;
+unzip -O CP949 $ZIP_PATTERN -d $DEST_DIR
+echo &quot;압축 해제가 완료되었습니다.&quot;
+</div></li></ol></section><section class="procedure-steps"><h3 id="teamcitystep2-to-a-procedure" data-toc="teamcitystep2-to-a-procedure">3.bulid step</h3><ol class="list _decimal"><li class="list__item" id="-hhp4qq_50"><p>Command line을 선택한다.</p></li><li class="list__item" id="-hhp4qq_51"><p>작업 경로 bin/</p></li><li class="list__item" id="-hhp4qq_52"><p id="-hhp4qq_53">결과물은 기본폴더에 있지만 효율적인 작업을 위해 다른 폴더에 결과물을 만든다.</p><div class="code-block" data-lang="none">
+#!/bin/bash
+set -e
+# 디버깅을 위해 실행 과정을 출력
+set -x
+# 환경 변수에서 GitHub 토큰 가져오기
+GIT_TOKEN=%env.GIT_TOKEN%
+GIT_USER=bigcat0815
+GIT_EMAIL=bigcat0815@gmail.com
+GIT_REPO=https://$GIT_USER:$GIT_TOKEN@github.com/bigcat0815/yesbigcat.github.io.git
+TARGET_BRANCH=main
+# Git 설정
+git config --global user.name &quot;$GIT_USER&quot;
+git config --global user.email &quot;$GIT_EMAIL&quot;
+# 현재 디렉토리 확인
+echo &quot;현재 디렉토리: $(pwd)&quot;
+# 'site' 디렉토리가 존재하면 삭제
+if [ -d &quot;site&quot; ]; then
+echo &quot;'site' 디렉토리가 이미 존재합니다. 삭제합니다.&quot;
+rm -rf site
+fi
+# main 브랜치 클론
+echo &quot;GitHub 저장소를 '$TARGET_BRANCH' 브랜치로 클론합니다.&quot;
+git clone --branch $TARGET_BRANCH --single-branch $GIT_REPO site || { echo &quot;Git clone failed&quot;; exit 1; }
+cd site
+# 클론된 저장소에 파일이 있는지 확인
+if [ &quot;$(ls -A)&quot; ]; then
+echo &quot;클론된 저장소에 파일이 존재합니다.&quot;
+else
+echo &quot;클론된 저장소가 비어있습니다. 초기 커밋을 확인하세요.&quot;
+exit 1
+fi
+# 기존 파일 삭제
+echo &quot;기존 파일을 삭제합니다.&quot;
+git rm -rf . || echo &quot;삭제할 파일이 없습니다.&quot;
+# 압축 해제된 파일 복사
+echo &quot;압축 해제된 파일을 복사합니다.&quot;
+cp -R ../result/* .
+# 변경 사항 추가
+echo &quot;변경 사항을 Git에 추가합니다.&quot;
+git add .
+# 변경 사항이 있는지 확인
+if ! git diff --cached --exit-code &gt; /dev/null; then
+echo &quot;변경 사항이 있습니다. 커밋하고 푸시합니다.&quot;
+git commit -m &quot;Deploy to GitHub Pages via TeamCity build&quot;
+git push origin $TARGET_BRANCH
+echo &quot;배포가 성공적으로 완료되었습니다.&quot;
+else
+echo &quot;변경 사항이 없습니다. 배포할 내용이 없습니다.&quot;
+fi
+</div></li></ol></section><section class="procedure-steps"><h3 id="teamcitystep3-to-a-procedure" data-toc="teamcitystep3-to-a-procedure">4.Parmeters</h3><ol class="list _decimal"><li class="list__item" id="-hhp4qq_55"><p>env.GIT_TOKEN 환경설정을 하면 파라미터가 나온다.</p></li><li class="list__item" id="-hhp4qq_56"><p id="-hhp4qq_57">토큰을 입력하면 된다.</p></li></ol></section><section class="procedure-steps"><h3 id="teamcitystep4-to-a-procedure" data-toc="teamcitystep4-to-a-procedure">5.Trigger</h3><ul class="list _bullet"><li class="list__item" id="-hhp4qq_58"><p>실행 요건이므로 VCS Trigger를 선택하자</p></li></ul></section><div class="last-modified">Last modified: 11 October 2024</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="teamcity-활용.html" class="navigation-links__prev">TeamCity 활용</a><a href="writerable와-teamcity를-활용한-gitpage-배포.html" class="navigation-links__next">Writerable와 Teamcity를 활용한  GitHubPage 배포</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b419/app.js"></script></body></html>
