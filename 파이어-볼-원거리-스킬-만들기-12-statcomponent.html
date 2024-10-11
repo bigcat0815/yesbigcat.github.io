@@ -1,0 +1,348 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2024-10-11T08:15:13.653972"><title>파이어 볼 원거리 스킬 만들기 12 - StatComponent | Bigcat GoodDay</title><script type="application/json" id="virtual-toc-data">[]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b419/app.css" rel="stylesheet"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="파이어 볼 원거리 스킬 만들기 12 - StatComponent | Bigcat GoodDay"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="Bigcat GoodDay Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/파이어-볼-원거리-스킬-만들기-12-statcomponent.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="파이어 볼 원거리 스킬 만들기 12 - StatComponent | Bigcat GoodDay"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "writerside-documentation/파이어-볼-원거리-스킬-만들기-12-statcomponent.html#webpage",
+    "url": "writerside-documentation/파이어-볼-원거리-스킬-만들기-12-statcomponent.html",
+    "name": "파이어 볼 원거리 스킬 만들기 12 - StatComponent | Bigcat GoodDay",
+    "description": "",
+    "image": "",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "writerside-documentation/#website",
+    "url": "writerside-documentation/",
+    "name": "Bigcat GoodDay Help"
+}</script><!-- End Schema.org --></head><body data-id="파이어-볼-원거리-스킬-만들기-12-StatComponent" data-main-title="파이어 볼 원거리 스킬 만들기 12 - StatComponent" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="starter.md|Starter///Unity.md|Unity///Unity-Skill.md|Unity Skill"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Bigcat GoodDay  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="파이어-볼-원거리-스킬-만들기-12-StatComponent" data-annotation-ids="advance,tutorial" id="파이어-볼-원거리-스킬-만들기-12-StatComponent.md">파이어 볼 원거리 스킬 만들기 12 - StatComponent</h1><aside class="prompt" data-type="note" data-title="" id="-q2ca9o_5"><p>데이터 설계 부터 StatComponent 제작까지 한 페이지에 담았다</p></aside><section class="procedure-steps"><h3 id="BaseStatData-data-a-procedure" data-toc="BaseStatData-data-a-procedure">12 - 1. BaseStatData 데이터시트 만들기</h3><p id="-q2ca9o_14">filename : BaseStatData.csv</p><div class="table-wrapper"><table class="wide" id="-q2ca9o_15"><thead><tr class="ijRowHead" id="-q2ca9o_16"><th id="-q2ca9o_35"><p>NO.</p></th><th id="-q2ca9o_36"><p>필드명</p></th><th id="-q2ca9o_37"><p>설명</p></th><th id="-q2ca9o_38"><p>예시 값</p></th></tr></thead><tbody><tr id="-q2ca9o_17"><td id="-q2ca9o_39"><p>1</p></td><td id="-q2ca9o_40"><p>Level</p></td><td id="-q2ca9o_41"></td><td id="-q2ca9o_42"><p>1</p></td></tr><tr id="-q2ca9o_18"><td id="-q2ca9o_43"><p>2</p></td><td id="-q2ca9o_44"><p>Attack</p></td><td id="-q2ca9o_45"></td><td id="-q2ca9o_46"><p>30</p></td></tr><tr id="-q2ca9o_19"><td id="-q2ca9o_47"><p>3</p></td><td id="-q2ca9o_48"><p>MaxHp</p></td><td id="-q2ca9o_49"></td><td id="-q2ca9o_50"><p>200</p></td></tr><tr id="-q2ca9o_20"><td id="-q2ca9o_51"><p>4</p></td><td id="-q2ca9o_52"><p>MaxHp</p></td><td id="-q2ca9o_53"></td><td id="-q2ca9o_54"><p>100</p></td></tr><tr id="-q2ca9o_21"><td id="-q2ca9o_55"><p>5</p></td><td id="-q2ca9o_56"><p>HpRegen</p></td><td id="-q2ca9o_57"></td><td id="-q2ca9o_58"><p>5</p></td></tr><tr id="-q2ca9o_22"><td id="-q2ca9o_59"><p>6</p></td><td id="-q2ca9o_60"><p>MpRegen</p></td><td id="-q2ca9o_61"></td><td id="-q2ca9o_62"><p>3</p></td></tr><tr id="-q2ca9o_23"><td id="-q2ca9o_63"><p>7</p></td><td id="-q2ca9o_64"><p>Defence</p></td><td id="-q2ca9o_65"></td><td id="-q2ca9o_66"><p>20</p></td></tr><tr id="-q2ca9o_24"><td id="-q2ca9o_67"><p>8</p></td><td id="-q2ca9o_68"><p>Dodge</p></td><td id="-q2ca9o_69"><p>회피</p></td><td id="-q2ca9o_70"><p>0</p></td></tr><tr id="-q2ca9o_25"><td id="-q2ca9o_71"><p>9</p></td><td id="-q2ca9o_72"><p>AttackSpeed</p></td><td id="-q2ca9o_73"></td><td id="-q2ca9o_74"><p>1</p></td></tr><tr id="-q2ca9o_26"><td id="-q2ca9o_75"><p>10</p></td><td id="-q2ca9o_76"><p>MoveSpeed</p></td><td id="-q2ca9o_77"></td><td id="-q2ca9o_78"><p>5</p></td></tr><tr id="-q2ca9o_27"><td id="-q2ca9o_79"><p>11</p></td><td id="-q2ca9o_80"><p>CriRate</p></td><td id="-q2ca9o_81"></td><td id="-q2ca9o_82"><p>0.15</p></td></tr><tr id="-q2ca9o_28"><td id="-q2ca9o_83"><p>12</p></td><td id="-q2ca9o_84"><p>CriDmg</p></td><td id="-q2ca9o_85"></td><td id="-q2ca9o_86"><p>1.5</p></td></tr><tr id="-q2ca9o_29"><td id="-q2ca9o_87"><p>13</p></td><td id="-q2ca9o_88"><p>STR</p></td><td id="-q2ca9o_89"></td><td id="-q2ca9o_90"><p>10</p></td></tr><tr id="-q2ca9o_30"><td id="-q2ca9o_91"><p>14</p></td><td id="-q2ca9o_92"><p>Dex</p></td><td id="-q2ca9o_93"></td><td id="-q2ca9o_94"><p>7</p></td></tr><tr id="-q2ca9o_31"><td id="-q2ca9o_95"><p>15</p></td><td id="-q2ca9o_96"><p>Int</p></td><td id="-q2ca9o_97"></td><td id="-q2ca9o_98"><p>7</p></td></tr><tr id="-q2ca9o_32"><td id="-q2ca9o_99"><p>16</p></td><td id="-q2ca9o_100"><p>Con</p></td><td id="-q2ca9o_101"></td><td id="-q2ca9o_102"><p>10</p></td></tr><tr id="-q2ca9o_33"><td id="-q2ca9o_103"><p>17</p></td><td id="-q2ca9o_104"><p>Wis</p></td><td id="-q2ca9o_105"></td><td id="-q2ca9o_106"><p>4</p></td></tr><tr id="-q2ca9o_34"><td id="-q2ca9o_107"><p>18</p></td><td id="-q2ca9o_108"><p>Exp</p></td><td id="-q2ca9o_109"></td><td id="-q2ca9o_110"><p>100</p></td></tr></tbody></table></div><ol class="list _decimal"></ol></section><section class="procedure-steps"><h3 id="BaseStatData-class-a-procedure" data-toc="BaseStatData-class-a-procedure">12 - 2. BaseStatData 클래스 만들기</h3><p id="-q2ca9o_111">filename : Data.Contents.cs</p><ol class="list _decimal"><li class="list__item" id="-q2ca9o_112"><p id="-q2ca9o_114">BaseStatData</p><div class="code-block" data-lang="csharp">
+   public class BaseStatData
+    {
+        public int Level;
+        public float Attack;
+        public float MaxHp;
+        public float MaxMp;
+        public float HpRegen;
+        public float MpRegen;
+        public float Defence;
+        public float Dodge;
+        public float AttackSpeed;
+        public float MoveSpeed;
+        public float CriRate;
+        public float CriDamage;
+        public int Str;
+        public int Dex;
+        public int Int;
+        public int Con;
+        public int Wis;
+        public int Exp;
+        [ExcludeField] public float Hp;
+        [ExcludeField] public float Mp;
+    }
+</div></li><li class="list__item" id="-q2ca9o_113"><p id="-q2ca9o_116">BaseStatDataLoader</p><div class="code-block" data-lang="csharp">
+[Serializable]
+public class BaseStatDataLoader : ILoader&lt;int, BaseStatData&gt;
+{
+    public List&lt;BaseStatData&gt; BaseStatDatas = new List&lt;BaseStatData&gt;();
+    public Dictionary&lt;int, BaseStatData&gt; MakeDict()
+    {
+        Dictionary&lt;int,BaseStatData&gt; dict = new Dictionary&lt;int, BaseStatData&gt;();
+        foreach (BaseStatData stat in BaseStatDatas)
+        {
+            dict.Add(stat.Level, stat);
+        }
+        return dict;
+    }
+    public bool Validate()
+    {
+        return true;
+    }
+}
+</div></li></ol></section><section class="procedure-steps"><h3 id="BaseStatData-json-a-procedure" data-toc="BaseStatData-json-a-procedure">12 - 3. Json 변환</h3><p id="-q2ca9o_118">filename : DataTransformer.cs</p><ul class="list _bullet"><li class="list__item" id="-q2ca9o_119"><p id="-q2ca9o_120">BaseStatData.json</p><div class="code-block" data-lang="csharp">
+[MenuItem(&quot;Tools/ParseExcel _F4&quot;)]  // 추가 단축키: Control + K
+public static void ParseExcelDataToJson()
+{
+    ParseExcelDataToJson&lt;BaseStatData,BaseStatData&gt;(&quot;BaseStat&quot;);
+    ParseExcelDataToJson&lt;SkillDataLoader,SkillData&gt;(&quot;Skill&quot;);
+    ParseExcelDataToJson&lt;EffectDataLoader,EffectData&gt;(&quot;Effect&quot;);
+    ParseExcelDataToJson&lt;ProjectileDataLoader,ProjectileData&gt;(&quot;Projectile&quot;);	
+}
+</div></li></ul></section><section class="procedure-steps"><h3 id="BaseStatData-addr-a-procedure" data-toc="BaseStatData-addr-a-procedure">12 - 4. Addressable에 JSON 등록</h3><ul class="list _bullet"><li class="list__item" id="-q2ca9o_122"><p id="-q2ca9o_123">Addressable</p><aside class="prompt" data-type="note" data-title="" id="-q2ca9o_124"><p>모든 리소스는 Addressable에 등록해서 사용</p></aside></li></ul></section><section class="procedure-steps"><h3 id="BaseStatData-Dejson-a-procedure" data-toc="BaseStatData-Dejson-a-procedure">12 - 5. Json 역직렬화</h3><p id="-q2ca9o_125">filename : DataManager.cs</p><ul class="list _bullet"><li class="list__item" id="-q2ca9o_126"><p id="-q2ca9o_127">DataManager</p><div class="code-block" data-lang="csharp">
+public class DataManager
+{
+    //... 생략
+    public Dictionary&lt;int, BaseStatData&gt; BaseStatDataDic = new Dictionary&lt;int, BaseStatData&gt;();
+    //... 생략
+    public void Init()
+    {
+        //... 생략
+        BaseStatDataDic = LoadJson&lt;BaseStatDataLoader, int, BaseStatData&gt;(&quot;BaseStatData&quot;).MakeDict();
+        //... 생략
+    }
+}
+</div></li></ul></section><section class="procedure-steps"><h3 id="BaseStatData-Init-a-procedure" data-toc="BaseStatData-Init-a-procedure">12 - 6. Data Init</h3><p id="-q2ca9o_129">filename : Title Scene</p><ul class="list _bullet"><li class="list__item" id="-q2ca9o_130"><p id="-q2ca9o_132">데이터를 로드하는 씬이나 UI에 Init 호출</p><div class="code-block" data-lang="csharp">
+void Init()
+{
+    Managers.Managers.Resource.LoadAllAsync&lt;Object&gt;(&quot;Preload&quot;, (k, count, totalCount) =&gt;
+    {
+        if (count == totalCount)
+        {
+            Debug.Log(&quot;All Loaded!&quot;);
+            Managers.Managers.Data.Init();
+        }
+    });
+}
+</div></li></ul><aside class="prompt" data-type="tip" data-title="" id="-q2ca9o_131"><p>&quot;Preload&quot;는 Addressable Label 커스텀 이름</p></aside></section><section class="procedure-steps"><h3 id="BaseStatData-Creature-a-procedure" data-toc="BaseStatData-Creature-a-procedure">12 - 7. Creature에 Component추가</h3><p id="-q2ca9o_134">filename : Creature.cs</p><ul class="list _bullet"><li class="list__item" id="-q2ca9o_135"><p id="-q2ca9o_136">Creature에 변경되는 Stat을 처리하기 위한 함수</p><div class="code-block" data-lang="csharp">
+public StatComponent StatComp { get ; protected set; }
+public void AddStat(Define.EStatType statType, float diffValue, Define.EFontType fontType)
+{
+    if (diffValue == 0) return;
+    if (ObjectState == Define.EObjectState.Dead) return; 
+    StatComp.AddTotalStat(statType, diffValue);
+}
+</div></li></ul></section><section class="procedure-steps"><h3 id="BaseStatData-StatComponent-a-procedure" data-toc="BaseStatData-StatComponent-a-procedure">12 - 8. StatComponent</h3><p id="-q2ca9o_138">filename : StatComponent.cs</p><ul class="list _bullet"><li class="list__item" id="-q2ca9o_139"><p id="-q2ca9o_140">StatComponent를 ObjectManager,수동 추가등 에서 추가하자</p><div class="code-block" data-lang="csharp">
+public class StatComponent : MonoBehaviour
+    {
+        #region 초기화
+        public Creature Owner { get; private set; }
+        public BaseStatData BaseStat { get; protected set; }
+        public BaseStatData TotalStat { get; protected set; }
+        private Coroutine _coRegenHp;
+        private Coroutine _coRegenMp;
+        public void SetInfo(Creature owner,int level, bool maxHp = true)
+        {
+            Owner = owner;
+            if (Managers.Managers.Data.BaseStatDataDic.TryGetValue(level, out BaseStatData baseStatData))
+            {
+                BaseStat.Attack = baseStatData.Attack;
+                BaseStat.MaxHp = baseStatData.MaxHp;
+                BaseStat.MaxMp = baseStatData.MaxMp;
+                BaseStat.Hp = baseStatData.MaxHp;
+                BaseStat.Mp = baseStatData.MaxMp;
+                BaseStat.HpRegen = baseStatData.HpRegen;
+                BaseStat.MpRegen = baseStatData.MpRegen;
+                BaseStat.Defence = baseStatData.Defence;
+                BaseStat.Dodge = baseStatData.Dodge;
+                BaseStat.AttackSpeed = baseStatData.AttackSpeed;
+                BaseStat.MoveSpeed = baseStatData.MoveSpeed;
+                BaseStat.CriRate = baseStatData.CriRate;
+                BaseStat.CriDamage = baseStatData.CriDamage;
+                BaseStat.Str = baseStatData.Str;
+                BaseStat.Dex = baseStatData.Dex;
+                BaseStat.Int = baseStatData.Int;
+                BaseStat.Con = baseStatData.Con;
+                BaseStat.Wis = baseStatData.Wis;
+            }
+            TotalStat = BaseStat;
+            if (maxHp)
+            {
+                SetTotalStat(Define.EStatType.Hp, TotalStat.MaxHp);
+                SetTotalStat(Define.EStatType.Mp, TotalStat.MaxMp);
+            }
+            StartRegenHp();
+            StartRegenMp();
+        }
+        #endregion
+        #region Helper Stat
+        //BaseStat Level에 의한 data시트의 기본값
+        //TotalStat는 ingame에서 실시간으로 반영되는 업데이트값
+        //BaseStat,TotalStat의 해당 데이터를 get,set헬퍼 딕션어리다
+        public static readonly Dictionary&lt;Define.EStatType, Func&lt;BaseStatData, float&gt;&gt; StatGetterDict =
+            new Dictionary&lt;Define.EStatType, Func&lt;BaseStatData, float&gt;&gt;()
+            {
+                { Define.EStatType.MaxHp, (s) =&gt; s.MaxHp },
+                { Define.EStatType.Hp, (s) =&gt; s.Hp },
+                { Define.EStatType.HpRegen, (s) =&gt; s.HpRegen },
+                { Define.EStatType.MaxMp, (s) =&gt; s.MaxMp },
+                { Define.EStatType.Mp, (s) =&gt; s.Mp },
+                { Define.EStatType.MpRegen, (s) =&gt; s.MpRegen },
+                { Define.EStatType.Attack, (s) =&gt; s.Attack },
+                { Define.EStatType.Defence, (s) =&gt; s.Defence },
+                { Define.EStatType.Dodge, (s) =&gt; s.Dodge },
+                { Define.EStatType.AttackSpeed, (s) =&gt; s.AttackSpeed },
+                { Define.EStatType.MoveSpeed, (s) =&gt; s.MoveSpeed },
+                { Define.EStatType.CriRate, (s) =&gt; s.CriRate },
+                { Define.EStatType.CriDamage, (s) =&gt; s.CriDamage },
+                { Define.EStatType.Str, (s) =&gt; s.Str },
+                { Define.EStatType.Dex, (s) =&gt; s.Dex },
+                { Define.EStatType.Int, (s) =&gt; s.Int },
+                { Define.EStatType.Con, (s) =&gt; s.Con },
+                { Define.EStatType.Wis, (s) =&gt; s.Wis }
+            };
+        public static Dictionary&lt;Define.EStatType, Action&lt;BaseStatData, float&gt;&gt; StatSetterDict =
+            new Dictionary&lt;Define.EStatType, Action&lt;BaseStatData, float&gt;&gt;()
+            {
+                { Define.EStatType.MaxHp, (s, v) =&gt; s.MaxHp = v },
+                { Define.EStatType.Hp, (s, v) =&gt; s.Hp = v },
+                { Define.EStatType.HpRegen, (s, v) =&gt; s.HpRegen = v },
+                { Define.EStatType.MaxMp, (s, v) =&gt; s.MaxMp = v },
+                { Define.EStatType.Mp, (s, v) =&gt; s.Mp = v },
+                { Define.EStatType.MpRegen, (s, v) =&gt; s.MpRegen = v },
+                { Define.EStatType.Attack, (s, v) =&gt; s.Attack = v },
+                { Define.EStatType.Defence, (s, v) =&gt; s.Defence = v },
+                { Define.EStatType.Dodge, (s, v) =&gt; s.Dodge = v },
+                { Define.EStatType.AttackSpeed, (s, v) =&gt; s.AttackSpeed = v },
+                { Define.EStatType.MoveSpeed, (s, v) =&gt; s.MoveSpeed = v },
+                { Define.EStatType.CriRate, (s, v) =&gt; s.CriRate = v },
+                { Define.EStatType.CriDamage, (s, v) =&gt; s.CriDamage = v },
+                { Define.EStatType.Str, (s, v) =&gt; s.Str = (int)v },
+                { Define.EStatType.Dex, (s, v) =&gt; s.Dex = (int)v },
+                { Define.EStatType.Int, (s, v) =&gt; s.Int = (int)v },
+                { Define.EStatType.Con, (s, v) =&gt; s.Con = (int)v },
+                { Define.EStatType.Wis, (s, v) =&gt; s.Wis = (int)v }
+            };
+        public float Hp
+        {
+            get =&gt; TotalStat.Hp;
+            set =&gt; SetTotalStat(Define.EStatType.Hp, Math.Clamp(value, 0, TotalStat.MaxHp));
+        }
+        public float Mp
+        {
+            get =&gt; TotalStat.Mp;
+            set =&gt; SetTotalStat(Define.EStatType.Mp, Math.Clamp(value, 0, TotalStat.MaxMp));
+        }
+        public float Attack
+        {
+            get =&gt; TotalStat.Attack;
+            set =&gt; SetTotalStat(Define.EStatType.Attack, value);
+        }
+        public float Defence
+        {
+            get =&gt; TotalStat.Defence;
+            set =&gt; SetTotalStat(Define.EStatType.Defence, value);
+        }
+        public float MoveSpeed =&gt; TotalStat.MoveSpeed;
+        #endregion
+        #region Helper
+        public float GetBaseStat(Define.EStatType statType)
+        {
+            return StatGetterDict[statType](BaseStat);
+        }
+        public float GetTotalStat(Define.EStatType statType)
+        {
+            return StatGetterDict[statType](TotalStat);
+        }
+        public void AddTotalStat(Define.EStatType statType, float value)
+        {
+            float finalValue = GetTotalStat(statType) + value;
+            SetTotalStat(statType, finalValue);
+        }
+        public void SetTotalStat(Define.EStatType statType, float finalValue)
+        {
+            float prevValue = 0;
+            float bonus = 0;
+            Define.EStatType bonusType = Define.EStatType.None;
+            switch (bonusType)
+            {
+                case Define.EStatType.MaxHp:
+                    prevValue = GetTotalStat(MaxHp);
+                    bonus = finalValue - prevValue;
+                    bonusType = Define.EStatType.Hp;
+                    break;
+                case Define.EStatType.Hp:
+                    finalValue = Math.Min(finalValue, GetTotalStat(MaxHp));
+                    break;
+                case Define.EStatType.HpRegen:
+                    break;
+                case Define.EStatType.MaxMp:
+                    prevValue = GetTotalStat(MaxMp);
+                    bonus = finalValue - prevValue;
+                    bonusType = Define.EStatType.Mp;
+                    break;
+                case Define.EStatType.Mp:
+                    finalValue = Math.Min(finalValue, GetTotalStat(MaxMp));
+                    break;
+                case Define.EStatType.MpRegen:
+                    break;
+                case Define.EStatType.Attack:
+                    break;
+                case Define.EStatType.Defence:
+                    break;
+                case Define.EStatType.Dodge:
+                    break;
+                case Define.EStatType.AttackSpeed:
+                    break;
+                case Define.EStatType.MoveSpeed:
+                    break;
+                case Define.EStatType.CriRate:
+                    break;
+                case Define.EStatType.CriDamage:
+                    break;
+                case Define.EStatType.Str:
+                    break;
+                case Define.EStatType.Dex:
+                    break;
+                case Define.EStatType.Int:
+                    break;
+                case Define.EStatType.Con:
+                    break;
+                case Define.EStatType.Wis:
+                    break;
+            }
+            // 스탯 업데이트
+            StatSetterDict[statType](TotalStat, finalValue);
+            // 캐릭터에 stat 반영
+            if (bonus != 0)
+            {
+                Owner.AddStat(bonusType, bonus, Define.EFontType.Heal);
+            }
+        }
+        #endregion
+        #region RegenStat
+        IEnumerator RegenHp()
+        {
+            while (true)
+            {
+                if (Owner.ObjectState != Define.EObjectState.Dead &amp;&amp;
+                    Owner.StatComp.Hp != Owner.StatComp.GetTotalStat(Define.EStatType.MaxHp))
+                {
+                    float regen = Owner.StatComp.GetTotalStat(Define.EStatType.HpRegen);
+                    Owner.AddStat(Define.EStatType.Hp, regen, Define.EFontType.Heal);
+                }
+                yield return new WaitForSeconds(8);
+            }
+        }
+        IEnumerator RegenMp()
+        {
+            while (true)
+            {
+                if (Owner.ObjectState != Define.EObjectState.Dead &amp;&amp;
+                    Owner.StatComp.Mp != Owner.StatComp.GetTotalStat(Define.EStatType.MaxMp))
+                {
+                    float regen = Owner.StatComp.GetTotalStat(Define.EStatType.MpRegen);
+                    Owner.AddStat(Define.EStatType.Mp, regen, Define.EFontType.Heal);
+                }
+                yield return new WaitForSeconds(5);
+            }
+        }
+        public void StartRegenHp()
+        {
+            if (_coRegenHp != null)
+            {
+                StopCoroutine(_coRegenHp);
+            }
+            _coRegenHp = StartCoroutine(RegenHp());
+        }
+        // MP 재생성 코루틴 시작
+        public void StartRegenMp()
+        {
+            if (_coRegenMp != null)
+            {
+                StopCoroutine(_coRegenMp);
+            }
+            _coRegenMp = StartCoroutine(RegenMp());
+        }
+        public void StopAllRegen()
+        {
+            if (_coRegenHp != null)
+            {
+                StopCoroutine(_coRegenHp);
+                _coRegenHp = null;
+            }
+            if (_coRegenMp != null)
+            {
+                StopCoroutine(_coRegenMp);
+                _coRegenMp = null;
+            }
+        }
+        #endregion
+    }
+</div></li></ul></section><div class="last-modified">Last modified: 10 October 2024</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="unity-skill.html" class="navigation-links__prev">Unity Skill</a><a href="파이어-볼-원거리-스킬-만들기-11-datamanager.html" class="navigation-links__next">파이어 볼 원거리 스킬 만들기 11 &quot;DataManager&quot;</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b419/app.js"></script></body></html>

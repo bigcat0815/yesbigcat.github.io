@@ -1,0 +1,62 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2024-10-11T08:15:13.6725985"><title>파이어 볼 원거리 스킬 만들기 07 &quot;SkillData 클래스&quot; | Bigcat GoodDay</title><script type="application/json" id="virtual-toc-data">[]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b419/app.css" rel="stylesheet"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="파이어 볼 원거리 스킬 만들기 07 &quot;SkillData 클래스&quot; | Bigcat GoodDay"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="Bigcat GoodDay Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/파이어-볼-원거리-스킬-만들기-07-skilldata-클래스.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="파이어 볼 원거리 스킬 만들기 07 &quot;SkillData 클래스&quot; | Bigcat GoodDay"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "writerside-documentation/파이어-볼-원거리-스킬-만들기-07-skilldata-클래스.html#webpage",
+    "url": "writerside-documentation/파이어-볼-원거리-스킬-만들기-07-skilldata-클래스.html",
+    "name": "파이어 볼 원거리 스킬 만들기 07 &quot;SkillData 클래스&quot; | Bigcat GoodDay",
+    "description": "",
+    "image": "",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "writerside-documentation/#website",
+    "url": "writerside-documentation/",
+    "name": "Bigcat GoodDay Help"
+}</script><!-- End Schema.org --></head><body data-id="파이어-볼-원거리-스킬-만들기-07-SkillData-클래스" data-main-title="파이어 볼 원거리 스킬 만들기 07 &quot;SkillData 클래스&quot;" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="starter.md|Starter///Unity.md|Unity///Unity-Skill.md|Unity Skill"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Bigcat GoodDay  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="파이어-볼-원거리-스킬-만들기-07-SkillData-클래스" data-annotation-ids="advance,tutorial" id="파이어-볼-원거리-스킬-만들기-07-SkillData-클래스.md">파이어 볼 원거리 스킬 만들기 07 &quot;SkillData 클래스&quot;</h1><section class="procedure-steps"><h3 id="baseDataClass-data-a-procedure" data-toc="baseDataClass-data-a-procedure">7. SkillData Class 설계</h3><p id="-vk9daf_9">filename : Data.Contents.cs</p><ol class="list _decimal"></ol></section><aside class="prompt" data-type="tip" data-title="" id="-vk9daf_6"><p>ExcludeField 직렬화시 제외되며,편의상 캐쉬용도이며 Data유효성 검사시 로드</p></aside><section class="procedure-steps" id="procedure-id"><ol class="list _decimal"><li class="list__item" id="-vk9daf_10"><p id="-vk9daf_13">SkillData</p><div class="code-block" data-lang="none">
+public class SkillData : BaseData
+ {
+     public ESkillCategory SkillCategory;
+     public EItemGrade SkillGrade; //등급 분류는 공유사용
+     public float Cooltime;
+     public int CastingRange;
+     public string AnimName;
+     public int Cost;
+     public float CastTime; // EventTime
+     public int MaxTargetCount;
+     public ETargetType TargetType;
+     public int GatherTargetRange;
+     public string GatherTargetPrefabName;
+     public ETargetFriendType TargetFriendType;
+     public bool IsPiercing; //관통 추가
+     public int ProjectileId;
+     public int EffectDataId;
+     public int NextLevelSkillId;
+     [ExcludeField] public SkillData NextLevelSkill;
+     [ExcludeField] public ProjectileData ProjectileData;
+     [ExcludeField] public EffectData EffectData;
+ }
+</div></li><li class="list__item" id="-vk9daf_11"><p>SkillDataLoader</p></li></ol><div class="code-block" data-lang="csharp">
+[Serializable]
+public class SkillDataLoader : ILoader&lt;int,SkillData&gt;
+{
+    public List&lt;SkillData&gt; Skills = new List&lt;SkillData&gt;();
+    public Dictionary&lt;int,SkillData&gt; MakeDict()
+    {
+        Dictionary&lt;int, SkillData&gt; dict = new Dictionary&lt;int, SkillData&gt;();
+        foreach (SkillData skillData in Skills)
+            dict.Add(skillData.TemplateId, skillData);
+        return dict;
+    }
+    public bool Validate()
+    {
+        foreach (SkillData skill in Skills)
+        {
+            Managers.Managers.Data.SkillDataDic.TryGetValue(skill.NextLevelSkillId, out skill.NextLevelSkill);
+            Managers.Managers.Data.EffectDataDic.TryGetValue(skill.EffectDataId, out skill.EffectData);
+            Managers.Managers.Data.ProjectileDataDic.TryGetValue(skill.ProjectileId, out skill.ProjectileData);
+        }
+        return true;
+    }
+}
+</div></section><aside class="prompt" data-type="note" data-title="" id="-vk9daf_8"><p id="-vk9daf_15">[Serializable] : 그 클래스의 직렬화및 필드들이 인스펙터에서 보이게 되며 값 설정가능</p><p id="-vk9daf_16">JSON의 Data정보를 역직렬화하여 DataLoader객체로 변환되어 List로 저장하게 된다.</p></aside><div class="last-modified">Last modified: 10 October 2024</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="파이어-볼-원거리-스킬-만들기-08-effectdata-클래스.html" class="navigation-links__prev">파이어 볼 원거리 스킬 만들기 08 &quot;EffectData 클래스&quot;</a><a href="파이어-볼-원거리-스킬-만들기-06-basedata-클래스.html" class="navigation-links__next">파이어 볼 원거리 스킬 만들기 06 &quot;BaseData 클래스&quot;</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b419/app.js"></script></body></html>
