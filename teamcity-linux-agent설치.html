@@ -1,0 +1,66 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2024-10-11T16:54:07.2751946"><title>Teamcity_Linux_Agent설치 | Bigcat GoodDay</title><script type="application/json" id="virtual-toc-data">[]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b419/app.css" rel="stylesheet"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="Teamcity_Linux_Agent설치 | Bigcat GoodDay"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="Bigcat GoodDay Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/teamcity-linux-agent설치.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="Teamcity_Linux_Agent설치 | Bigcat GoodDay"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "writerside-documentation/teamcity-linux-agent설치.html#webpage",
+    "url": "writerside-documentation/teamcity-linux-agent설치.html",
+    "name": "Teamcity_Linux_Agent설치 | Bigcat GoodDay",
+    "description": "",
+    "image": "",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "writerside-documentation/#website",
+    "url": "writerside-documentation/",
+    "name": "Bigcat GoodDay Help"
+}</script><!-- End Schema.org --></head><body data-id="Teamcity-Linux-Agent설치" data-main-title="Teamcity_Linux_Agent설치" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="starter.md|Starter///TeamCity.md|TeamCity///TeamCity-설치.md|TeamCity 설치"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Bigcat GoodDay  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="Teamcity-Linux-Agent설치" data-annotation-ids="basic" id="Teamcity-Linux-Agent설치.md">Teamcity_Linux_Agent설치</h1><aside class="prompt" data-type="note" data-title="" id="xk3mav_4"><p>리눅스 TeamCity 서버 설치시 리눅스 Agent 설치되어 있음</p></aside><section class="procedure-steps"><h3 id="java-to-a-procedure" data-toc="java-to-a-procedure">1.Java 설치</h3><ul class="list _bullet"><li class="list__item" id="xk3mav_10"><div class="code-block" data-lang="bash">
+sudo apt update
+sudo apt upgrade
+sudo apt install openjdk-17-jdk -y
+java -version
+echo &quot;export JAVA_HOME=$(dirname $(dirname $(readlink -f $(which java))))&quot; | sudo tee -a /etc/profile.d/java.sh
+sudo chmod +x /etc/profile.d/java.sh
+source /etc/profile.d/java.sh
+</div></li></ul></section><section class="procedure-steps"><h3 id="teamcityLinuxAgent-to-a-procedure" data-toc="teamcityLinuxAgent-to-a-procedure">2. 리눅스 Agent 재설치</h3><ol class="list _decimal"><li class="list__item" id="xk3mav_12"><p id="xk3mav_14">최초 설치라면 다운로드 부터 시작</p><aside class="prompt" data-type="note" data-title="" id="xk3mav_15"><p>Teamcity Server의 Agent install에서 경로를 복사한다</p></aside><div class="code-block" data-lang="bash">
+# 기존 에이전트 디렉토리로 이동(확인)
+cd /opt/teamcity-agent
+# 서비스 중지
+sudo systemctl stop teamcity-agent
+# 기존 파일 제거 (백업 필요 시 백업 후 삭제)
+sudo rm -rf /opt/teamcity-agent/* 
+# 최신 에이전트 다운로드 및 설치
+sudo wget http://192.168.0.4:8111/update/buildAgent.zip
+sudo unzip -d /opt/teamcity-agent buildAgent.zip
+</div></li><li class="list__item" id="xk3mav_13"><p id="xk3mav_17">teamcity-agent 유저 생성및 소유권 이전</p><div class="code-block" data-lang="bash">
+sudo adduser teamcity-agent
+sudo chown -R teamcity-agent:teamcity-agent /opt/teamcity-agent
+</div></li></ol></section><section class="procedure-steps"><h3 id="agentconfig-to-a-procedure" data-toc="agentconfig-to-a-procedure">3. 리눅스 Agent 설정</h3><ol class="list _decimal"><li class="list__item" id="xk3mav_19"><p id="xk3mav_21">buildAgent.properties 설정</p><aside class="prompt" data-type="note" data-title="" id="xk3mav_22"><p>ownPort는 Agent마다 다르게 설정</p></aside><div class="code-block" data-lang="bash">
+# 에이전트 설정 (server URL 등)
+sudo nano /opt/teamcity-agent/conf/buildAgent.properties
+</div></li><li class="list__item" id="xk3mav_20"><p id="xk3mav_24">수정 내용</p><div class="code-block" data-lang="bash">
+serverUrl=http://192.168.0.4:8111
+name=YesAgent
+ownPort=9091
+</div></li></ol></section><section class="procedure-steps"><h3 id="agentservice-to-a-procedure" data-toc="agentservice-to-a-procedure">4. 리눅스 Agent 서비스 등록</h3><ol class="list _decimal"><li class="list__item" id="xk3mav_26"><p id="xk3mav_28">teamcity-agent.service 등록</p><div class="code-block" data-lang="bash">
+sudo nano /etc/systemd/system/teamcity-agent.service
+</div></li><li class="list__item" id="xk3mav_27"><p id="xk3mav_30">수정 내용</p><div class="code-block" data-lang="bash">
+[Unit]
+Description=TeamCity Build Agent
+After=network.target
+[Service]
+Type=forking
+User=teamcity-agent
+Group=teamcity-agent
+ExecStart=/opt/teamcity-agent/bin/agent.sh start
+ExecStop=/opt/teamcity-agent/bin/agent.sh stop
+Restart=always
+RestartSec=10
+[Install]
+WantedBy=multi-user.target
+</div></li></ol></section><section class="procedure-steps"><h3 id="agentrestart-to-a-procedure" data-toc="agentrestart-to-a-procedure">5. 서비스 재시작</h3><ol class="list _decimal"><li class="list__item" id="xk3mav_32"><p id="xk3mav_34">재시작</p><div class="code-block" data-lang="bash">
+sudo systemctl daemon-reload
+sudo systemctl start teamcity-agent
+sudo systemctl enable teamcity-agent
+</div></li><li class="list__item" id="xk3mav_33"><p id="xk3mav_36">서비스 확인</p><div class="code-block" data-lang="bash">
+sudo systemctl status teamcity-agent
+</div></li></ol></section><div class="last-modified">Last modified: 11 October 2024</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="teamcity-server-설치.html" class="navigation-links__prev">TeamCity Server 설치</a><a href="teamcity-활용.html" class="navigation-links__next">TeamCity 활용</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b419/app.js"></script></body></html>
