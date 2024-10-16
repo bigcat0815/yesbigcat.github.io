@@ -1,0 +1,116 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2024-10-17T06:08:51.7928822"><title>파이어 볼 원거리 스킬 만들기 15 - Skill 종류 | Bigcat GoodDay</title><script type="application/json" id="virtual-toc-data">[]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b419/app.css" rel="stylesheet"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="파이어 볼 원거리 스킬 만들기 15 - Skill 종류 | Bigcat GoodDay"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="Bigcat GoodDay Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/파이어-볼-원거리-스킬-만들기-skill-종류.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="파이어 볼 원거리 스킬 만들기 15 - Skill 종류 | Bigcat GoodDay"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "writerside-documentation/파이어-볼-원거리-스킬-만들기-skill-종류.html#webpage",
+    "url": "writerside-documentation/파이어-볼-원거리-스킬-만들기-skill-종류.html",
+    "name": "파이어 볼 원거리 스킬 만들기 15 - Skill 종류 | Bigcat GoodDay",
+    "description": "",
+    "image": "",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "writerside-documentation/#website",
+    "url": "writerside-documentation/",
+    "name": "Bigcat GoodDay Help"
+}</script><!-- End Schema.org --></head><body data-id="파이어-볼-원거리-스킬-만들기-Skill-종류" data-main-title="파이어 볼 원거리 스킬 만들기 15 - Skill 종류" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="starter.md|Starter///Unity.md|Unity///Unity-Skill.md|Unity Skill"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Bigcat GoodDay  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="파이어-볼-원거리-스킬-만들기-Skill-종류" data-annotation-ids="advance,tutorial" id="파이어-볼-원거리-스킬-만들기-Skill-종류.md">파이어 볼 원거리 스킬 만들기 15 - Skill 종류</h1><aside class="prompt" data-type="note" data-title="" id="-1eoy14_5"><p>Skill 구현은 검증과 구체적 사용이 기술</p></aside><section class="procedure-steps"><h3 id="normalskill-data-a-procedure" data-toc="normalskill-data-a-procedure">15 - 1 Normal Skill</h3><p id="-1eoy14_10">filename : NormalSkill.cs</p><ul class="list _bullet"><li class="list__item" id="-1eoy14_11"><p id="-1eoy14_12">독 데미지도 추가 되어 있다.</p><div class="code-block" data-lang="csharp">
+public class NormalSkill :Skill
+{
+    public NormalSkill(int templateId, Creature owner) : base(templateId, owner)
+    {
+    }
+    public override void UseSkill(Creature target)
+    {
+        var (failReason, validTarget) = CanUseSkill(target);
+        if (failReason != Define.ECanUseSkillFailReason.None || validTarget == null)
+            return; 
+        // 독 스킬 사용 
+        {
+            // MP 소모
+            if (SkillData.Cost &gt; 0)
+                Owner.AddStat(Define.EStatType.Mp, -SkillData.Cost, Define.EFontType.Cost);
+            // 스킬 애니메이션 등 처리 (필요 시 추가)
+            // 효과 적용
+            Owner.EffectComp.ApplyEffect(SkillData.EffectDataId, source: Owner);
+            // 쿨타임 업데이트
+            UpdateCoolTimeInNextUseTick();
+        }
+    }
+    public override (Define.ECanUseSkillFailReason,Creature) CanUseSkill(Creature target)
+    {
+        var (failReason, validTarget) = base.CanUseSkill(target);
+        if (failReason != Define.ECanUseSkillFailReason.None)
+            return (failReason,validTarget); 
+        if (SkillData.EffectData == null)
+            return (Define.ECanUseSkillFailReason.InvalidData, validTarget); 
+        return (Define.ECanUseSkillFailReason.None,validTarget);
+    }
+}
+</div></li></ul></section><section class="procedure-steps"><h3 id="projectileskill-data-a-procedure" data-toc="projectileskill-data-a-procedure">15 - 2 ProjectileSkill</h3><p id="-1eoy14_14">filename : ProjectileSkill.cs</p><ul class="list _bullet"><li class="list__item" id="-1eoy14_15"><div class="code-block" data-lang="csharp">
+public class ProjectileSkill :Skill
+{
+    public ProjectileSkill(int templateId, Creature owner) : base(templateId, owner)
+    {
+    } 
+    public override void UseSkill(Creature target)
+    {
+        var (failReason, validTarget) = CanUseSkill(target);
+        if (failReason != Define.ECanUseSkillFailReason.None || validTarget == null)
+            return;
+        // 투사체 시전
+        if (SkillData.Cost &gt; 0)
+            Owner.AddStat(Define.EStatType.Mp, -SkillData.Cost, Define.EFontType.Cost);
+        Projectile projectile = Managers.Managers.Object.Spawn&lt;Projectile&gt;(SkillData.ProjectileData.TemplateId);
+        if (projectile != null)
+        {
+            projectile.Init(Owner, this, validTarget);
+            UpdateCoolTimeInNextUseTick(); // 쿨타임 업데이트
+        }
+    }
+    public override (Define.ECanUseSkillFailReason, Creature) CanUseSkill(Creature target)
+    {
+        var (baseFailReason, validTarget) = base.CanUseSkill(target);
+        if (baseFailReason != Define.ECanUseSkillFailReason.None)
+            return (baseFailReason,validTarget);
+        if (SkillData.ProjectileData == null)
+            return (Define.ECanUseSkillFailReason.InvalidData,validTarget);
+        return (Define.ECanUseSkillFailReason.None,validTarget);
+    } 
+}
+</div></li></ul></section><aside class="prompt" data-type="note" data-title="" id="-1eoy14_8"><p>참고 : 독데미지 스킬, Effect는 이전에 구현됨</p></aside><section class="procedure-steps"><h3 id="EffectDot-data-a-procedure" data-toc="EffectDot-data-a-procedure">15 -3 독뎀 사용 예시</h3><ol class="list _decimal"><li class="list__item" id="-1eoy14_17"><p id="-1eoy14_20">filename : Data.Contents.cs</p><p id="-1eoy14_21">EffectData에 추가 및 csv에도 필드와 값 추가</p><div class="code-block" data-lang="csharp">
+// EFFECT_TYPE_POISON (또는 다른 DOT 효과)에 필요한 필드
+public float DamagePerTick; // 매 틱마다 입히는 피해량
+public float TickInterval;  // 피해를 주는 간격 (초)
+</div></li><li class="list__item" id="-1eoy14_18"><p id="-1eoy14_23">filename : NormalSkill.cs</p><p id="-1eoy14_24">별도의 skill 클래스 없이 NormalSkill에 effect 부여함</p><div class="code-block" data-lang="csharp">
+public override void UseSkill(Creature target)
+{
+    var (failReason, validTarget) = CanUseSkill(target);
+    if (failReason != Define.ECanUseSkillFailReason.None || validTarget == null)
+        return; 
+    // 독 스킬 사용 
+    {
+        // MP 소모
+        if (SkillData.Cost &gt; 0)
+            Owner.AddStat(Define.EStatType.Mp, -SkillData.Cost, Define.EFontType.Cost);
+        // 스킬 애니메이션 등 처리 (필요 시 추가)
+        // 실제 효과 적용
+        Owner.EffectComp.ApplyEffect(SkillData.EffectDataId, source: Owner);
+        // 쿨타임 업데이트
+        UpdateCoolTimeInNextUseTick();
+    }
+}
+</div></li><li class="list__item" id="-1eoy14_19"><p id="-1eoy14_26">filename : Hero.cs</p><p id="-1eoy14_27">Hero / Monster의 초기화에서 각자의 스킬등록</p><div class="code-block" data-lang="csharp">
+public void Init()
+{
+    InitializeSkills();
+}
+private void InitializeSkills()
+{
+    if (HeroData == null)
+        return;
+    foreach (var skillData in HeroData.SkillMap.Values)
+    {
+        SkillComp.RegisterSkill(skillData.TemplateId);
+    }
+}
+</div></li></ol></section><div class="last-modified">Last modified: 16 October 2024</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="파이어-볼-원거리-스킬-만들기-16-projectile.html" class="navigation-links__prev">파이어 볼 원거리 스킬 만들기 16 - Projectile</a><a href="파이어-볼-원거리-스킬-만들기-14-skill.html" class="navigation-links__next">파이어 볼 원거리 스킬 만들기 14 - Skill 구조</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b419/app.js"></script></body></html>
